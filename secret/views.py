@@ -28,11 +28,11 @@ class BinaryAPIView(APIView): # Binario
         type = query_params.get("type")
         data = {}
         if type:
-            if type == 'decode':
+            if type == 'encode':
                 data = {
                     'message': binary_helper.encrypt(request.data.get("message"))
                 }
-            elif type == 'encode':
+            elif type == 'decode':
                 data = {
                     'message': binary_helper.decrypt(request.data.get("message"))
                 }
