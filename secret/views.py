@@ -8,6 +8,10 @@ from algorithms.gen import PasswordGenerator
 from algorithms.salsa20 import SalsaHelper
 from algorithms.points import PointsHelper
 
+
+from django.shortcuts import render
+from django.http import HttpResponseRedirect, HttpResponse
+
 # HELPERS
 binary_helper = BinaryHelper
 cesar_helper = CesarHelper
@@ -28,11 +32,11 @@ class BinaryAPIView(APIView): # Binario
         type = query_params.get("type")
         data = {}
         if type:
-            if type == 'decode':
+            if type == 'encode':
                 data = {
                     'message': binary_helper.encrypt(request.data.get("message"))
                 }
-            elif type == 'encode':
+            elif type == 'decode':
                 data = {
                     'message': binary_helper.decrypt(request.data.get("message"))
                 }
@@ -87,3 +91,7 @@ class CSAPIView(APIView): # Chave simétrica
             }
        
         return Response(data=data, status=status.HTTP_200_OK)
+
+
+def index(request):
+    return render(request, template_name='secret/index.html')

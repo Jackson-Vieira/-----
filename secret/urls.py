@@ -9,4 +9,5 @@ urlpatterns = [
     path("cifra-cesar/", views.CifraAPIVIew.as_view(), name="to-cifra-cesar"),
     path('points/', views.PointsAPIView.as_view(), name='to-points'),
     path('salsa20/', views.CSAPIView.as_view(), name='to-salsa20'),
+    path('', views.index, name='index')
     ]
