@@ -8,6 +8,10 @@ from algorithms.gen import PasswordGenerator
 from algorithms.salsa20 import SalsaHelper
 from algorithms.points import PointsHelper
 
+
+from django.shortcuts import render
+from django.http import HttpResponseRedirect, HttpResponse
+
 # HELPERS
 binary_helper = BinaryHelper
 cesar_helper = CesarHelper
@@ -87,3 +91,7 @@ class CSAPIView(APIView): # Chave simétrica
             }
        
         return Response(data=data, status=status.HTTP_200_OK)
+
+
+def index(request):
+    return render(request, template_name='secret/index.html')
