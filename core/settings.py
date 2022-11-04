@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     # My apps
     'secret',
 
+    # Docs
+    'drf_yasg',
+
 ]
 
 MIDDLEWARE = [
