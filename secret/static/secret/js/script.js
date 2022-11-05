@@ -76,7 +76,12 @@ const defaultPosts = (encryptor) => {
     if (encryptor=="points" && method == "decode") {
         outpBox.value = "Não é possível traduzir os pontos!!!"
         return
-    }
+    } if (encryptor == "binary" && method == "decode") {for (x of inpBox.value){
+        if (x != "0" && x != "1"){
+            outpBox.value = "Só é possível traduzir bits!!!(1 e 0)"
+            return
+        }
+    }}
     req = {message: inpBox.value}
 
     fetch(`http://127.0.0.1:8000/${encryptor}/?type=${method}`, {
