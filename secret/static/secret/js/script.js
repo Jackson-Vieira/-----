@@ -82,6 +82,7 @@ const defaultPosts = (encryptor) => {
             return
         }
     }}
+    
     req = {message: inpBox.value}
 
     fetch(`http://127.0.0.1:8000/${encryptor}/?type=${method}`, {
